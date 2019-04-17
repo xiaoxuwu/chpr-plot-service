@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Form Modal, which is shown if new is pressed -->
+<div id="new-data-modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="uk-fieldset">
+                <legend class="uk-legend">Upload Plot Metadata</legend>
+
+                {% if error_message %}
+                    <div class="uk-alert-danger" uk-alert>
+                            <a class="uk-alert-close" uk-close></a>
+                            <p class="">{{ error_message }}</p>
+                    </div>
+                {% endif %}
+            
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" name="name" placeholder="Plot Name" value="{{ prev_req.name}}">
+                </div>
+                <div class="uk-margin" uk-margin>
+                    <div uk-form-custom="target: true">
+                        <input name="raw_data" type="file">
+                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Select Raw Data" disabled>
+                    </div>
+                    <div uk-form-custom="target: > * > span:first-child">
+                        <select name="data_type">
+                            <option value="">Plot & Data Type</option>
+                            {% for type in types %}
+                                <option value="{{type.0}}">Type: {{type.1}}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                            <span></span>
+                            <span uk-icon="icon: chevron-down"></span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label><input class="uk-checkbox" name="staff_only" type="checkbox" checked> Visible By Staff Only</label>
+                </div>
+                <button class="uk-button uk-button-default uk-margin-top">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="uk-card">
+    <div class="uk-card-header">
+        <div uk-grid>
+            <div class="uk-width-5-6@s">
+                <h3 class="uk-card-title">Upload, Process, and Plot Data</h3>
+            </div>
+            <div class="uk-width-1-6@s">
+                <a class="uk-button uk-button-primary" href="#new-data-modal" uk-toggle>New <span class="uk-margin-left" uk-icon="plus-circle"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+        <table class="uk-table uk-table-divider">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Staff Only</th>
+                    <th>Raw Data</th>
+                    <th>Plot & Data Type</th>
+                    <th>Added</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plt_md in plt_mds %}
+                    <tr>
+                        <td>{{ plt_md.name }}</td>
+                        <td>{{ plt_md.staff_only }}</td>
+                        <td>{{ plt_md.orig_raw_data_filename }}</td>
+                        <td>{{ plt_md.get_data_type_display }}</td>
+                        <td>{{ plt_md.added }}</td>
+                        <td>
+                            {% comment %} {% if plt_md.processed_data %}
+                                <p class="uk-text-success"> Processed <span uk-icon="check"></span></p>
+                            {% else %} {% endcomment %}
+                                <a class="uk-button uk-button-primary" href="/process/{{plt_md.id}}" uk-toggle>Process</a>
+                            {% comment %} {% endif %} {% endcomment %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="uk-card-footer"></div>
+</div>
+{% endblock %}
