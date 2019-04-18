@@ -4,6 +4,7 @@
 This project contains source code for a CHPR plotting application.
 
 # 2 Annotated Layout
+```
 .
 ├── Dockerfile <- setup file used during Docker image initialization
 ├── README.md <- this file
@@ -38,8 +39,9 @@ This project contains source code for a CHPR plotting application.
 │   └── wsgi.py <- wsgi server configuration
 ├── requirements.txt <- requirements file specifying all python dependencies
 ├── start_dev_docker <- script to start terminal pointed at backend, not master
-├── static <- static css files
+└── static <- static css files
     └── css 
         └── style.css
 
 28 directories, 179 files
+```
