@@ -71,6 +71,7 @@
                     <th>Plot & Data Type</th>
                     <th>Added</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -82,11 +83,14 @@
                         <td>{{ plt_md.get_data_type_display }}</td>
                         <td>{{ plt_md.added }}</td>
                         <td>
-                            {% comment %} {% if plt_md.processed_data %}
+                            {% if plt_md.processed_data %}
                                 <p class="uk-text-success"> Processed <span uk-icon="check"></span></p>
-                            {% else %} {% endcomment %}
-                                <a class="uk-button uk-button-primary" href="/process/{{plt_md.id}}" uk-toggle>Process</a>
-                            {% comment %} {% endif %} {% endcomment %}
+                            {% else %}
+                                <p class="uk-text-success"> Unprocessed <span uk-icon="close"></span></p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="uk-button uk-button-primary" href="/process/{{plt_md.id}}" uk-toggle>Process</a>
                         </td>
                     </tr>
                 {% endfor %}
