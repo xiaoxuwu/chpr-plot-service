@@ -21,7 +21,7 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
     docker-compose build
     ```
 
-4 Give Executing Permissions to Critical Scripts
+4. Give Executing Permissions to Critical Scripts
    
     ```
     sudo chmod +x docker-entrypoint.sh
