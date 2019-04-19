@@ -3,6 +3,20 @@
 ## 1 Introduction
 This project contains source code for a CHPR plotting application for Abbot. This document contains high-level information about this repository as well as set-up and run instructions.
 
+### 1.1 Tech Stack
+
+#### Core
+---------
+Python 
+Docker (infrastructure and containerization)
+Django (web framework)
+Postgresql (database)  
+
+#### Secondary
+---------
+Pandas (data manipulation)
+Pygal  (plotting)
+
 ## 2 Set Up
 
 1. Clone this repository
