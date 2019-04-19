@@ -42,13 +42,15 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
     sudo chmod +x start_dev_docker
     ```
     
-5. Create Admin account for Django Admin
+5. Create Admin account for Django Admin (In another terminal (Mac) or the docker-toolbox shell (PC) window)
 
     ```
     docker-compose run web sh
     python manage.py createsuperuser
     
     ... follow prompts to create super user ...
+    
+    exit
     ```
 
 ## 3 Run
