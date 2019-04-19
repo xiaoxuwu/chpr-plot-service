@@ -35,11 +35,20 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
     docker-compose build
     ```
 
-4. Give Executing Permissions to Critical Scripts
+4. Give executing permissions to critical scripts
    
     ```
     sudo chmod +x docker-entrypoint.sh
     sudo chmod +x start_dev_docker
+    ```
+    
+5. Create Admin account for Django Admin
+
+    ```
+    docker-compose run web sh
+    python manage.py createsuperuser
+    
+    ... follow prompts to create super user ...
     ```
 
 ## 3 Run
@@ -58,7 +67,8 @@ For development and debugging:
 ./start_dev_docker
 ```
 
-You may now go to http://localhost:8000 with your browser to see the site.
+You may now go to http://localhost:8000 with your browser to see the site. Go to /admin for admin panel, and
+log in with credentials from 2.5
 
 ## 3.1 Quitting
 
