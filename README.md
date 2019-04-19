@@ -30,31 +30,31 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
 
 # 3 Run
 
-   Once the container is built, you may run with two methods:
+Once the container is built, you may run with two methods:
 
-    For production and full integration testing:
-    
-    ```
-    docker-compose up
-    ```
+For production and full integration testing:
 
-   For development and debugging:
-    
-    ```
-    ./start_dev_docker
-    ```
+```
+docker-compose up
+```
 
-    You may now go to http://localhost:8000 with your browser to see the site.
+For development and debugging:
+
+```
+./start_dev_docker
+```
+
+You may now go to http://localhost:8000 with your browser to see the site.
 
 # 3.1 Quitting
 
-   Use Ctrl+C to quit the running server. You may also need to run:
+Use Ctrl+C to quit the running server. You may also need to run:
 
-    ```
-    docker-compose down
-    ```
+```
+docker-compose down
+```
 
-   To ensure that containers have shut down properly.
+To ensure that containers have shut down properly.
 
 # 4 Annotated Layout
 ```
