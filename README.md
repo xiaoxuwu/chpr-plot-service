@@ -22,6 +22,7 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
     ```
 
 4 Give Executing Permissions to Critical Scripts
+   
     ```
     sudo chmod +x docker-entrypoint.sh
     sudo chmod +x start_dev_docker
