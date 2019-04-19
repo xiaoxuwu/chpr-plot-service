@@ -1,9 +1,59 @@
 # chpr-plot-service
 
 # 1 Introduction
-This project contains source code for a CHPR plotting application.
+This project contains source code for a CHPR plotting application for Abbot. This document contains high-level information about this repository as well as set-up and run instructions.
 
-# 2 Annotated Layout
+# 2 Set Up
+
+1. Clone this repository
+
+2. Set up Docker
+
+Mac: https://docs.docker.com/docker-for-mac/install/
+
+PC: https://docs.docker.com/toolbox/toolbox_install_windows/
+
+3. Build container
+
+Startup a terminal (Mac) or the docker-toolbox shell (PC), and type in the following commands:
+
+```
+docker-compose build
+```
+
+4 Give Executing Permissions to Critical Scripts
+```
+sudo chmod +x docker-entrypoint.sh
+sudo chmod +x start_dev_docker
+```
+
+# 3 Run
+
+Once the container is build, you may run with two methods:
+
+For production and full integration testing:
+```
+docker-compose up
+```
+
+For development and debugging:
+```
+./start_dev_docker
+```
+
+You may now go to http://localhost:8000 with your browser to see the site.
+
+# 3.1 Quitting
+
+Use Ctrl+C to quit the running server. You may also need to run:
+
+```
+docker-compose down
+```
+
+To ensure that containers have shut down properly.
+
+# 4 Annotated Layout
 ```
 .
 ├── Dockerfile <- setup file used during Docker image initialization
