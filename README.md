@@ -1,9 +1,9 @@
 # chpr-plot-service
 
-# 1 Introduction
+## 1 Introduction
 This project contains source code for a CHPR plotting application for Abbot. This document contains high-level information about this repository as well as set-up and run instructions.
 
-# 2 Set Up
+## 2 Set Up
 
 1. Clone this repository
 
@@ -28,7 +28,7 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
     sudo chmod +x start_dev_docker
     ```
 
-# 3 Run
+## 3 Run
 
 Once the container is built, you may run with two methods:
 
@@ -46,7 +46,7 @@ For development and debugging:
 
 You may now go to http://localhost:8000 with your browser to see the site.
 
-# 3.1 Quitting
+## 3.1 Quitting
 
 Use Ctrl+C to quit the running server. You may also need to run:
 
@@ -56,7 +56,7 @@ docker-compose down
 
 To ensure that containers have shut down properly.
 
-# 4 Annotated Layout
+## 4 Annotated Layout
 ```
 .
 ├── Dockerfile <- setup file used during Docker image initialization
