@@ -9,9 +9,9 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
 
 2. Set up Docker
 
-Mac: https://docs.docker.com/docker-for-mac/install/
+    Mac: https://docs.docker.com/docker-for-mac/install/
 
-PC: https://docs.docker.com/toolbox/toolbox_install_windows/
+    PC: https://docs.docker.com/toolbox/toolbox_install_windows/
 
 3. Build container
 
@@ -29,7 +29,7 @@ sudo chmod +x start_dev_docker
 
 # 3 Run
 
-Once the container is build, you may run with two methods:
+Once the container is built, you may run with two methods:
 
 For production and full integration testing:
 ```
