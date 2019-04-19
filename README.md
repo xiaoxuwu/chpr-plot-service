@@ -33,6 +33,7 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
    Once the container is built, you may run with two methods:
 
     For production and full integration testing:
+    
     ```
     docker-compose up
     ```
