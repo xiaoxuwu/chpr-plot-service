@@ -46,6 +46,7 @@ This project contains source code for a CHPR plotting application for Abbot. Thi
 
     ```
     docker-compose run web sh
+    python manage.py migrate
     python manage.py createsuperuser
     
     ... follow prompts to create super user ...
