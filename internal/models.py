@@ -5,6 +5,7 @@ class PlotMetadata(models.Model):
     TYPES = (
         ("DP", "Demography Pie"),
         ("DB", "Demography Bar"),
+        ("DS", "Demography Stacked"),
     )
 
     name = models.CharField(max_length=256)

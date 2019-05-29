@@ -5,7 +5,7 @@ from internal.models import *
 import internal.validation as validation
 from django.core.files.base import ContentFile
 from django.utils.crypto import get_random_string
-from internal.charts import PieChart, BarChart
+from internal.charts import PieChart, BarChart, StackChart
 from internal.process import *
 import pdb
 
@@ -19,8 +19,12 @@ def index(request):
                 new_chart = PieChart(
                     name=plt_md.name
                 )
-            else:
+            elif plt_md.data_type == 'DB':
                 new_chart = BarChart(
+                    name=plt_md.name
+                )
+            else:
+                new_chart = StackChart(
                     name=plt_md.name
                 )
             chart_data = processed_data_to_chart(plt_md)
