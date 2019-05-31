@@ -3,11 +3,36 @@
 {% block content %}
 
 <div uk-grid>
-{% for chart in charts %}
-    <div class="uk-width-1-2">
-        {{ chart|safe }}
+    <!-- begin sidebar -->
+    <div class="uk-width-1-6@s">
+        <ul class="uk-nav-default uk-nav-parent-icon text-sidebar" uk-nav>
+            <li class="uk-nav-header text-sidebar">Projects</li>
+            {% for project in projects %}
+                <li><a href="/{{project.name.lower}}"><span class="uk-margin-small-right"><i class="fas fa-{{project.fa_icon}}"></i></span> {{project.name}}</a></li>
+            {% endfor %}
+        </ul>
     </div>
-{% endfor %}
+
+    <!-- begin content -->
+    <div class="uk-width-expand@m">
+        <div uk-grid>
+            {% for content_block in processed_content %}
+                {% if content_block.content_type == 'H' %}
+                <div class="uk-width-1-1">
+                    <h1 class="uk-text-lead">{{content_block.text_content}}</h1>
+                <div class="uk-width-1-1">
+                {% elif content_block.content_type == 'P' %}
+                <div class="uk-width-1-1">
+                    <p>{{content_block.text_content}}</p>
+                <div class="uk-width-1-1">
+                {% else %}
+                    <div class="uk-width-1-2">
+                        {{ content_block.svg_chart|safe }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
